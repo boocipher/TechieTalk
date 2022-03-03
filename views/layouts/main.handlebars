@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TechieTalk</title>
+    <!--CSS only-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <section class="hero pageHeader">
+
+        <div class="hero-body">
+            <div class="container has-text-centered titleContainer">
+                <div class="titleBlock">
+                    <h1 class="title">
+                        TechieTalk
+                    </h1>
+                    <h2 class="subtitle">
+                        Blog for Tech Enthusiasts
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+  
+
+  <div id="navbarBasicExample" class="navbar-menu has-text-centered">
+    <div class="navbar-start">
+      <a class="navbar-item" href= "/">
+      Home
+      </a>
+        {{#if loggedIn}}
+            <a class="navbar-item" href="/profile">Dashboard</a> </li>
+        {{else}}
+             <a class= "navbar-item" href="/login">Login</a>
+        {{/if}}  
+      </a>
+        {{#if loggedIn}}
+            <a class="navbar-item" id="logout">Logout</a> 
+        {{/if}}  
+    </div>
+  </div>
+</nav>
+        <div class="flex-column justify-space-around is-multiline has-text-centered mt-5">
+            
+                <!-- Render the sub layout -->
+                <div class="season">
+                    {{{ body }}}
+                </div>
+            
+        </div>
+    {{!-- </div> --}}
+    
+    <!-- Render script for logged in users only -->
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+    
+</body>
+
+</html>
